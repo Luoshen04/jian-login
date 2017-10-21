@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录 - 简书</title>
+    <link rel="Shortcut Icon" href="logo.png" type="image/png" />
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding:0;
+        }
+        body{
+            background-color: rgb(241,241,241);
+        }
+        #logoImg{
+            position: absolute;
+            left: 50px;
+            top:56px;
+            width: 100px;
+        }
+        #logoImg img{
+            width: 100%;
+        }
+
+        #wrap{
+            width: 300px;
+            /*height: 590px;*/
+            padding: 50px 50px 30px 50px;
+            margin: 0 auto;
+            margin-top: 60px;
+            background-color: #fff;
+            border-radius:4px;
+            box-shadow: 0 0 2px 2px #ddd;
+        }
+        /*登录注册*/
+        #top{
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        #top button{
+            width: 60px;
+            height: 40px;
+            font-size: 18px;
+            font-weight: bolder;
+            outline: none;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        #top span{
+            color: rgb(150,150,150);
+            margin: 0 5px;
+        }
+        .btn1{
+            border: none;
+            color: rgb(249,105,100);
+            border-bottom: 2px solid rgb(249,105,100);
+        }
+        .btn2{
+            border: none;
+            color: rgb(150,150,150);
+
+        }
+        /*用户 密码*/
+        #m_top,#m_check{
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgb(200,200,200);
+            margin-bottom: 22px;
+        }
+        #m_top{
+            background-color:rgb(248,248,248);
+        }
+        #fenge{
+            height: 1px;
+            background-color:rgb(200,200,200);
+        }
+        #user,#pw{
+            position: relative;
+            padding:4px 12px 4px 35px;
+        }
+        #middle input{
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 40px;
+        }
+        #m_top input{
+            background-color:rgb(248,248,248);
+        }
+        #m_top input::-webkit-input-placeholder{
+            color: rgb(166,160,163);
+            opacity:1;
+            font-size: 14px;
+        }
+        #m_top img{
+            position: absolute;
+            left: 10px;
+            top:15px;
+            width: 18px;
+            height: 18px;
+        }
+        /*验证*/
+        #check{
+            cursor: pointer;
+            position: relative;
+            padding:1px 12px 1px 45px;
+            background: linear-gradient(#fff,rgb(240,240,240));
+        }
+        #dianjiyanzheng{
+            line-height: 40px;
+            width: 100%;
+            height: 40px;
+            color: rgb(105,105,105);
+            font-size: 14px;
+        }
+        #neiquan{
+            position: absolute;
+            left: 8px;
+            top:8px;
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius:50%;
+            background-color:rgb(0,141,249);
+        }
+        #waiquan{
+            position: absolute;
+            left:5px;
+            top:8px;
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid rgb(0,141,249);
+            background-color: rgb(191,219,247);
+        }
+        #checkimg{
+            width: 20px;
+            height: 20px;
+            background-image: url(img/checkimg.png);
+            background-repeat: no-repeat;
+            background-position: 0px -105px;
+            position: absolute;
+            right: 14px;
+            top:14px;
+        }
+        /*记住 忘记密码*/
+        #jiwang{
+            overflow: hidden;
+        }
+        #jiwang input{
+            width: 24px;
+            height: 22px;
+            line-height: 22px;
+            float: left;
+        }
+        #jizhu{
+            font-size: 14px;
+            color: rgb(150,150,150);
+            float: left;
+        }
+        #wangji{
+            cursor: pointer;
+            font-size: 14px;
+            color:rgb(150,150,150) ;
+            float: right;
+        }
+        #denglu{
+            cursor: pointer;
+            width: 100%;
+            height: 40px;
+            margin-top: 22px;
+            border-radius: 20px;
+            outline: none;
+            border: none;
+            font-size: 18px;
+            color: #fff;
+        }
+        .denglu1{
+            background-color: rgb(0,151,204);
+        }
+        .denglu2{
+            color:rgb(0,127,179);
+        }
+        /*底部*/
+        #bottom{
+            margin-top: 22px;
+            margin-bottom: 30px;
+        }
+        #b_fenge{
+            position: relative;
+            text-align: center;
+        }
+        #bf_middle{
+            font-size: 14px;
+            color: rgb(181,181,181);
+        }
+        #bf_left,#bf_right{
+            position: absolute;
+            width: 60px;
+            height: 1px;
+            background-color: rgb(181,181,181);
+        }
+        #bf_left{
+            top:10px;
+            left: 30px;
+        }
+        #bf_right{
+            top:10px;
+            right: 30px;
+        }
+        /*社交平台*/
+        #sign{
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        #sign div{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: inline-block;
+            background-color: red;
+        }
+        #s_weibo{
+            background-image: url(img/sign.png);
+            background-repeat: no-repeat;
+            background-position: -7px -1px;
+        }
+        #s_weixin{
+            background-image: url(img/sign.png);
+            background-repeat: no-repeat;
+            background-position: -67px -1px;
+        }
+        #s_qq{
+            background-image: url(img/sign.png);
+            background-repeat: no-repeat;
+            background-position: -127px -1px;
+        }
+        #s_qita{
+            background-image: url(img/sign.png);
+            background-repeat: no-repeat;
+            background-position: -187px -1px;
+        }
+    </style>
+</head>
+<body>
+    <div id="logoImg">
+        <img src="img/logoImg.png" alt="">
+    </div>
+    <div id="wrap">
+        <!--登录 注册-->
+        <div id="top">
+            <button class="btn1">登录</button>
+            <span>·</span>
+            <button class="btn2">注册</button>
+        </div>
+        <div id="middle">
+            <!--用户密码-->
+            <div id="m_top">
+                <div id="user">
+                    <img src="img/用户.png" alt="">
+                    <input type="text" placeholder="手机号或邮箱">
+                </div>
+                <div id="fenge"></div>
+                <div id="pw">
+                    <img src="img/pw.png" alt="">
+                    <input type="password" placeholder="密码">
+                </div>
+            </div>
+            <div id="m_middle">
+                <!--验证-->
+                <div id="m_check">
+                    <div id="check">
+                        <div id="yanzheng">
+                            <span id="waiquan">
+                                <span id="neiquan"></span>
+                            </span>
+                        </div>
+                        <div id="checkimg">
+                        </div>
+                        <div id="dianjiyanzheng">点击按钮进行验证</div>
+                    </div>
+                </div>
+                <!--记住 忘记密码-->
+                <div id="jiwang">
+                    <input type="checkbox"><span id="jizhu">记住我</span>
+                    <p id="wangji">登录遇到问题?</p>
+                </div>
+            </div>
+            <div id="m_bottom">
+                <button id="denglu" class="denglu1">登录</button>
+            </div>
+        </div>
+        <!--底部-->
+        <div id="bottom">
+            <!--分割线-->
+            <div id="b_fenge">
+                <div id="bf_left"></div>
+                <span id="bf_middle">社交帐号登录</span>
+                <div id="bf_right"></div>
+            </div>
+            <!--社交平台-->
+            <div id="sign">
+                <div id="s_weibo"></div>
+                <div id="s_weixin"></div>
+                <div id="s_qq"></div>
+                <div id="s_qita"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
